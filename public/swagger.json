@@ -1,0 +1,164 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Locations",
+        "version": "1"
+    },
+    "paths": {
+        "/v1/api/locations": {
+            "get": {
+                "summary": "Verifica os emails marketings enviados",
+                "operationId": "getLocations",
+                "responses": {
+                    "200": {
+                        "description": "Confirmação de envio de email marketing"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Salva uma localização",
+                "operationId": "saveLocations",
+                "parameters": [
+                    {
+                        "name": "latitude",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "longitude",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "latitude": {
+                                        "type": "string"
+                                    },
+                                    "longitude": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "latitude": "-19.921147",
+                                    "longitude": "-44.095464"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Salvo a localização"
+                    }
+                }
+            }
+        },
+        "/v1/api/locations/{id}": {
+            "get": {
+                "summary": "Retorna uma localização",
+                "operationId": "getSingleLocation",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "retorna a localização"
+                    }
+                }
+            },
+            "put": {
+                "summary": "Edita uma localização",
+                "operationId": "updateLocations",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "latitude",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "longitude",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "latitude": {
+                                        "type": "string"
+                                    },
+                                    "longitude": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "latitude": "-19.921147",
+                                    "longitude": "-44.095464"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Editada a localização"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "deleta uma localização",
+                "operationId": "deleteLocations",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Deletada a localização"
+                    }
+                }
+            }
+        }
+    }
+}
