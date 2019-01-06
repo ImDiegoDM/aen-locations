@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: locations-svc
+  labels:
+    app: locations
+spec:
+  type: NodePort
+  ports:
+  - port: 5555
+    nodePort: 80
+  selector:
+    app: locations
